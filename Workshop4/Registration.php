@@ -1,26 +1,19 @@
 <?php
-/****************************
- * ENABLE ERROR REPORTING
- ****************************/
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
-/****************************
- * START SESSION
- ****************************/
+ //START SESSION
+
 session_start();
 
-/****************************
- * VARIABLES
- ****************************/
+
+//VARIABLES
+
 $name = $email = "";
 $errors = [];
 $success_message = "";
 
-/****************************
- * HANDLE FORM SUBMISSION
- ****************************/
+
+ //HANDLE FORM SUBMISSION
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Get form data safely
@@ -46,17 +39,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-/****************************
- * SUCCESS MESSAGE
- ****************************/
+
+ //SUCCESS MESSAGE
+
 if (isset($_SESSION['success_message'])) {
     $success_message = $_SESSION['success_message'];
     unset($_SESSION['success_message']);
 }
 
-/****************************
- * FUNCTIONS
- ****************************/
+
+ //ßFUNCTIONS
+ 
 function validateRegistration($name, $email, $password, $confirm_password) {
 
     $errors = [];
